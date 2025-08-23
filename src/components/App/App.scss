@@ -1,0 +1,143 @@
+$color-bg-main: #f3f4f6;
+$color-bg-container: #fff;
+$color-bg-header: #37003c;
+$color-bg-section: #f9fafb;
+$color-bg-button: #2563eb;
+$color-bg-button-hover: #1e40af;
+$color-bg-table-header: #efefef;
+
+$color-text-light: #fff;
+$color-text-dark: #000;
+
+$color-border: #d1d5db;
+$color-input-placeholder: #9ca3af;
+
+.app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 1rem;
+  background-color: $color-bg-main;
+  font-family: "Open Sans", sans-serif;
+}
+
+.container {
+  font-family: "Inter", "Roboto", sans-serif;
+  background-color: $color-bg-container;
+  border-radius: 1rem;
+  overflow: hidden;
+  width: 40%;
+  height: 100%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  & * {
+    font-family: inherit;
+  }
+}
+
+.header {
+  background-color: $color-bg-header;
+  color: $color-text-light;
+  padding: 1.25rem;
+  font-size: 1.75rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+}
+
+.section {
+  margin: 1rem;
+  padding: 1rem;
+  background-color: $color-bg-section;
+  border-radius: 0.5rem;
+}
+
+.section-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: $color-text-dark;
+}
+
+.form-row {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.input,
+.select {
+  flex: 1;
+  padding: 0.5rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  border: 2px solid $color-border;
+  border-radius: 0.5rem;
+  background-color: $color-bg-container;
+  &.half {
+    width: 50%;
+  }
+  &.full {
+    width: 100%;
+  }
+  &.p6o7 {
+    width: 85.7143%;
+  }
+  &.dark {
+    background-color: $color-bg-table-header;
+  }
+}
+
+input::placeholder {
+  color: $color-input-placeholder;
+}
+
+.button {
+  background-color: $color-bg-button;
+  color: $color-text-light;
+  font-size: 1.125rem;
+  font-weight: 600;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: $color-bg-button-hover;
+  }
+
+  &.full {
+    width: 100%;
+  }
+  &.p1o7 {
+    width: 14.2857%;
+  }
+}
+
+.table-section {
+  padding: 1rem;
+  margin-top: 1rem;
+  background-color: $color-bg-container;
+}
+
+.table {
+  width: 100%;
+  text-align: left;
+  font-size: 1.125rem;
+  border-collapse: collapse;
+
+  th {
+    padding: 1rem;
+    font-weight: 500;
+    border-bottom: 2px solid $color-border;
+    background-color: $color-bg-table-header;
+  }
+
+  td {
+    padding: 1rem;
+    font-weight: 500;
+    border-bottom: 2px solid $color-border;
+  }
+}

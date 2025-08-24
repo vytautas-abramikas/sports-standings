@@ -1,5 +1,3 @@
-import type { Dispatch, SetStateAction } from "react";
-
 export type TOpponent = {
   id: number;
   name: string;
@@ -13,9 +11,13 @@ export type TMatch = {
   opponent2score: number;
 };
 
+export type TContextInstance = "premier" | "eurobasket" | "wimbledon";
+
 export type TStandingsContext = {
+  instanceId: TContextInstance;
   opponents: TOpponent[];
   matches: TMatch[];
-  setOpponents: Dispatch<SetStateAction<TOpponent[]>>;
-  setMatches: Dispatch<SetStateAction<TMatch[]>>;
+  opponentError: boolean;
+  addOpponent: (opponent: TOpponent) => void;
+  addMatch: (match: TMatch) => void;
 };

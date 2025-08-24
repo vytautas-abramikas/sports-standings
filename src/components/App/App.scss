@@ -19,13 +19,12 @@ $color-input-placeholder: #9ca3af;
   height: 100vh;
   padding: 1rem;
   background-color: $color-bg-main;
-  font-family: "Open Sans", sans-serif;
 }
 
 .container {
   font-family: "Inter", "Roboto", sans-serif;
   background-color: $color-bg-container;
-  border-radius: 1rem;
+  border-radius: 0.5rem;
   overflow: hidden;
   width: 40%;
   height: 100%;
@@ -99,6 +98,7 @@ input::placeholder {
   font-size: 1.125rem;
   font-weight: 600;
   padding: 0.5rem;
+  padding-inline: 1rem;
   border-radius: 0.5rem;
   border: none;
   cursor: pointer;

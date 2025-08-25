@@ -11,6 +11,15 @@ export type TMatch = {
   opponent2score: number;
 };
 
+export type TOpponentStats = {
+  id: number;
+  played: number;
+  wins: number;
+  losses: number;
+  draws: number;
+  points: number;
+};
+
 export type TContextInstance = "premier" | "eurobasket" | "wimbledon";
 
 export type TStandingsContext = {
@@ -18,6 +27,7 @@ export type TStandingsContext = {
   opponents: TOpponent[];
   matches: TMatch[];
   opponentError: boolean;
-  addOpponent: (opponent: TOpponent) => void;
+  addOpponent: (opponent: TOpponent) => boolean;
   addMatch: (match: TMatch) => void;
+  resultsForTable: TOpponentStats[];
 };

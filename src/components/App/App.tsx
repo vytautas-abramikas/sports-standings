@@ -5,6 +5,8 @@ import "./App.scss";
 import type { TContextInstance } from "../../types/types";
 
 const panels: TContextInstance[] = ["premier", "eurobasket", "wimbledon"];
+const PANEL_WIDTH = 30;
+const PANEL_GAP = 2;
 
 export const App: React.FC = () => {
   const [visibleCount, setVisibleCount] = useState(3);
@@ -23,6 +25,12 @@ export const App: React.FC = () => {
     return () => window.removeEventListener("resize", updateVisibleCount);
   }, []);
 
+  const maxCurrent = Math.max(0, panels.length - visibleCount);
+
+  useEffect(() => {
+    setCurrent((c) => Math.min(c, maxCurrent));
+  }, [visibleCount, maxCurrent]);
+
   let touchStartX = 0;
   let touchEndX = 0;
   const handleTouchStart = (e: React.TouchEvent) => {
@@ -30,13 +38,17 @@ export const App: React.FC = () => {
   };
   const handleTouchEnd = (e: React.TouchEvent) => {
     touchEndX = e.changedTouches[0].screenX;
-    if (touchEndX - touchStartX > 50) setCurrent((c) => Math.max(0, c - 1));
+    if (touchEndX - touchStartX > 50)
+      setCurrent((c) => Math.max(0, Math.min(maxCurrent, c - 1)));
     if (touchStartX - touchEndX > 50)
-      setCurrent((c) => Math.min(panels.length - visibleCount, c + 1));
+      setCurrent((c) => Math.max(0, Math.min(maxCurrent, c + 1)));
   };
 
   const showLeft = current > 0;
-  const showRight = current < panels.length - visibleCount;
+  const showRight = current < maxCurrent;
+
+  const viewportWidth =
+    visibleCount * PANEL_WIDTH + (visibleCount - 1) * PANEL_GAP;
 
   return (
     <div
@@ -47,25 +59,35 @@ export const App: React.FC = () => {
       {showLeft && (
         <button
           className="carousel-arrow left"
-          onClick={() => setCurrent((c) => Math.max(0, c - 1))}
+          onClick={() =>
+            setCurrent((c) => Math.max(0, Math.min(maxCurrent, c - 1)))
+          }
         >
           &lt;
         </button>
       )}
       <div
-        style={{ display: "flex", transition: "transform 0.3s", gap: "1rem" }}
+        className="carousel-viewport"
+        style={{ width: `${viewportWidth}rem` }}
       >
-        {panels.slice(current, current + visibleCount).map((instance) => (
-          <StandingsProvider key={instance} instanceId={instance}>
-            <PremierLeaguePanel />
-          </StandingsProvider>
-        ))}
+        <div
+          className="carousel-track"
+          style={{
+            transform: `translateX(-${current * (PANEL_WIDTH + PANEL_GAP)}rem)`,
+          }}
+        >
+          {panels.map((instance) => (
+            <StandingsProvider key={instance} instanceId={instance}>
+              <PremierLeaguePanel />
+            </StandingsProvider>
+          ))}
+        </div>
       </div>
       {showRight && (
         <button
           className="carousel-arrow right"
           onClick={() =>
-            setCurrent((c) => Math.min(panels.length - visibleCount, c + 1))
+            setCurrent((c) => Math.max(0, Math.min(maxCurrent, c + 1)))
           }
         >
           &gt;

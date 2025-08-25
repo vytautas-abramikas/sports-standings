@@ -41,3 +41,25 @@ html {
 .carousel-arrow.right {
   right: 0.5rem;
 }
+
+.carousel-viewport {
+  overflow: hidden;
+  position: relative;
+  margin: 0 auto;
+}
+
+.carousel-track {
+  display: flex;
+  will-change: transform;
+  transition: transform 0.5s cubic-bezier(0.77, 0, 0.18, 1);
+}
+
+.league-container {
+  width: 30rem;
+  flex-shrink: 0;
+  margin-right: 2rem;
+}
+
+.league-container:last-child {
+  margin-right: 0;
+}

@@ -22,12 +22,21 @@ export type TOpponentStats = {
 
 export type TContextInstance = "premier" | "eurobasket" | "wimbledon";
 
+export type TMatchError = {
+  home: boolean;
+  away: boolean;
+  homeScore: boolean;
+  awayScore: boolean;
+};
+
 export type TStandingsContext = {
   instanceId: TContextInstance;
   opponents: TOpponent[];
   matches: TMatch[];
   opponentError: boolean;
+  matchError: TMatchError;
+  setMatchError: (error: TMatchError) => void;
   addOpponent: (opponent: TOpponent) => boolean;
-  addMatch: (match: TMatch) => void;
+  addMatch: (match: TMatch) => boolean;
   resultsForTable: TOpponentStats[];
 };

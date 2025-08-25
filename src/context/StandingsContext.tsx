@@ -17,6 +17,12 @@ export const StandingsProvider: React.FC<{
   const [opponents, setOpponents] = useState<TOpponent[]>([]);
   const [matches, setMatches] = useState<TMatch[]>([]);
   const [opponentError, setOpponentError] = useState<boolean>(false);
+  const [matchError, setMatchError] = useState({
+    home: false,
+    away: false,
+    homeScore: false,
+    awayScore: false,
+  });
 
   const resultsForTable = useMemo(() => {
     const statsMap: { [key: number]: TOpponentStats } = {};
@@ -83,12 +89,43 @@ export const StandingsProvider: React.FC<{
     return true;
   };
 
-  const isValidScore = (score: number) => Number.isInteger(score) && score >= 0;
-
-  const addMatch = (match: TMatch) => {
-    const newId = match.id === 0 ? getNextId(matches) : match.id;
+  const addMatch = (match: TMatch): boolean => {
+    if (!isValidMatch(match)) {
+      return false;
+    }
+    const newId = getNextId(matches);
     const newMatch: TMatch = { ...match, id: newId };
     setMatches((prev) => [...prev, newMatch]);
+    return true;
+  };
+
+  const isValidMatch = (match: TMatch) => {
+    const { opponent1Id, opponent2Id, opponent1score, opponent2score } = match;
+    let valid = true;
+    const error = {
+      home: false,
+      away: false,
+      homeScore: false,
+      awayScore: false,
+    };
+
+    if (opponent1Id === 0 || opponent2Id === 0) {
+      error.home = opponent1Id === 0;
+      error.away = opponent2Id === 0;
+      valid = false;
+    }
+
+    if (!opponent1score && opponent1score !== 0) {
+      error.homeScore = true;
+      valid = false;
+    }
+    if (!opponent2score && opponent2score !== 0) {
+      error.awayScore = true;
+      valid = false;
+    }
+
+    setMatchError(error);
+    return valid;
   };
 
   return (
@@ -98,6 +135,8 @@ export const StandingsProvider: React.FC<{
         opponents,
         matches,
         opponentError,
+        matchError,
+        setMatchError,
         addOpponent,
         addMatch,
         resultsForTable,

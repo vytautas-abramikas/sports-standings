@@ -1,4 +1,4 @@
-import { useState, createContext, useMemo } from "react";
+import { useState, createContext, useMemo, useEffect } from "react";
 import type { ReactNode } from "react";
 import type {
   TOpponent,
@@ -14,8 +14,14 @@ export const StandingsProvider: React.FC<{
   instanceId: TContextInstance;
   children: ReactNode;
 }> = ({ instanceId, children }) => {
-  const [opponents, setOpponents] = useState<TOpponent[]>([]);
-  const [matches, setMatches] = useState<TMatch[]>([]);
+  const [opponents, setOpponents] = useState<TOpponent[]>(() => {
+    const stored = localStorage.getItem(`opponents_${instanceId}`);
+    return stored ? JSON.parse(stored) : [];
+  });
+  const [matches, setMatches] = useState<TMatch[]>(() => {
+    const stored = localStorage.getItem(`matches_${instanceId}`);
+    return stored ? JSON.parse(stored) : [];
+  });
   const [opponentError, setOpponentError] = useState<boolean>(false);
   const [matchError, setMatchError] = useState({
     home: false,
@@ -23,6 +29,11 @@ export const StandingsProvider: React.FC<{
     homeScore: false,
     awayScore: false,
   });
+
+  useEffect(() => {
+    localStorage.setItem(`opponents_${instanceId}`, JSON.stringify(opponents));
+    localStorage.setItem(`matches_${instanceId}`, JSON.stringify(matches));
+  }, [opponents, matches, instanceId]);
 
   const resultsForTable = useMemo(() => {
     const statsMap: { [key: number]: TOpponentStats } = {};

@@ -49,7 +49,7 @@ export const AddMatchForm: React.FC = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div className="form-row">
+      <div className="form-row score">
         <select
           className="select half dark"
           value={homeId}
@@ -81,7 +81,7 @@ export const AddMatchForm: React.FC = () => {
           ))}
         </select>
       </div>
-      <div className="form-row">
+      <div className="form-row score">
         <input
           type="text"
           placeholder="Home Score"

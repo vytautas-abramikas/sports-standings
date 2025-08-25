@@ -8,18 +8,20 @@ export const PremierLeaguePanel: React.FC = () => {
     <div className="league-container">
       <div className="header">Premier League</div>
 
-      <div className="section">
-        <div className="section-title">Add Team</div>
-        <AddOpponentForm />
-      </div>
+      <div className="league-content">
+        <div className="section">
+          <div className="section-title">Add Team</div>
+          <AddOpponentForm />
+        </div>
 
-      <div className="section">
-        <div className="section-title">Add Score</div>
-        <AddMatchForm />
-      </div>
+        <div className="section">
+          <div className="section-title">Add Score</div>
+          <AddMatchForm />
+        </div>
 
-      <div className="table-section">
-        <StandingsTable />
+        <div className="table-section">
+          <StandingsTable />
+        </div>
       </div>
     </div>
   );

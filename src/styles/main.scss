@@ -3,3 +3,41 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+html {
+  font-size: min(1.75vw, 1.75vh);
+}
+
+.carousel-arrow {
+  position: absolute;
+  background: none;
+  color: #9ca3af;
+  top: 50%;
+  z-index: 10;
+  font-size: 3rem;
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.15s;
+
+  &:hover,
+  &:focus {
+    transform: scale(1.08);
+    outline: none;
+  }
+
+  &:active {
+    transform: scale(0.96);
+  }
+}
+.carousel-arrow.left {
+  left: 0.5rem;
+}
+.carousel-arrow.right {
+  right: 0.5rem;
+}

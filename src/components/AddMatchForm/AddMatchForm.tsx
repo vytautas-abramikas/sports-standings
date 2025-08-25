@@ -103,7 +103,7 @@ export const AddMatchForm: React.FC = () => {
           }}
         />
       </div>
-      <button type="submit" className="button full">
+      <button type="submit" className="panel-button full">
         Add Score
       </button>
     </form>

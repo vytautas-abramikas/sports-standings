@@ -19,19 +19,34 @@ $color-placeholder: #9ca3af;
   height: 100vh;
   padding: 1rem;
   background-color: $color-bg-main;
+  position: relative;
+  overflow: hidden;
 }
 
 .league-container {
+  display: flex;
+  flex-direction: column;
   font-family: "Inter", "Roboto", sans-serif;
   background-color: $color-bg-container;
   border-radius: 0.5rem;
   overflow: hidden;
-  width: 40%;
-  height: 100%;
+  width: 30rem;
+  height: 45rem;
+  margin: 1rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
 
+.league-content {
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
   & * {
     font-family: inherit;
+  }
+
+  &::-webkit-scrollbar {
+    width: 0 !important;
+    background: transparent;
   }
 }
 
@@ -96,7 +111,7 @@ input::placeholder {
   color: $color-placeholder;
 }
 
-.button {
+.panel-button {
   background-color: $color-bg-button;
   color: $color-text-light;
   font-size: 1.125rem;

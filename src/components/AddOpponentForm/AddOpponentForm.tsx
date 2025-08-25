@@ -21,7 +21,7 @@ export const AddOpponentForm: React.FC = () => {
         onChange={(e) => setInputValue(e.target.value)}
         style={{ borderColor: opponentError ? "red" : undefined }}
       />
-      <button type="submit" className="button p1o6">
+      <button type="submit" className="panel-button p1o6">
         Add
       </button>
     </form>

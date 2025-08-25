@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { useStandingsContext } from "../../hooks/useStandingsContext";
-import "../App/App.scss";
+import "./AddMatchForm.scss";
 
 export const AddMatchForm: React.FC = () => {
-  const { opponents, matches, addMatch, matchError } = useStandingsContext();
+  const { instanceId, opponents, matches, addMatch, matchError } =
+    useStandingsContext();
 
   const [homeId, setHomeId] = useState<number>(0);
   const [awayId, setAwayId] = useState<number>(0);
@@ -51,13 +52,13 @@ export const AddMatchForm: React.FC = () => {
     <form onSubmit={handleSubmit}>
       <div className="form-row score">
         <select
-          className="select half dark"
+          className={`select half dark ${instanceId}`}
           value={homeId}
           onChange={(e) => setHomeId(Number(e.target.value))}
           style={{ borderColor: matchError.home ? "red" : undefined }}
         >
           <option value={0} className="option-placeholder">
-            Home team
+            Home Team
           </option>
           {getAvailableOpponents(homeId, true).map((opponent) => (
             <option key={opponent.id} value={opponent.id}>
@@ -66,13 +67,13 @@ export const AddMatchForm: React.FC = () => {
           ))}
         </select>
         <select
-          className="select half dark"
+          className={`select half dark ${instanceId}`}
           value={awayId}
           onChange={(e) => setAwayId(Number(e.target.value))}
           style={{ borderColor: matchError.away ? "red" : undefined }}
         >
           <option value={0} className="option-placeholder">
-            Away team
+            Away Team
           </option>
           {getAvailableOpponents(awayId, false).map((opponent) => (
             <option key={opponent.id} value={opponent.id}>
@@ -85,7 +86,7 @@ export const AddMatchForm: React.FC = () => {
         <input
           type="text"
           placeholder="Home Score"
-          className="input half"
+          className={`input half ${instanceId}`}
           value={homeScore}
           onChange={(e) => setHomeScore(e.target.value.replace(/\D/, ""))}
           style={{
@@ -95,7 +96,7 @@ export const AddMatchForm: React.FC = () => {
         <input
           type="text"
           placeholder="Away Score"
-          className="input half"
+          className={`input half ${instanceId}`}
           value={awayScore}
           onChange={(e) => setAwayScore(e.target.value.replace(/\D/, ""))}
           style={{
@@ -103,7 +104,7 @@ export const AddMatchForm: React.FC = () => {
           }}
         />
       </div>
-      <button type="submit" className="panel-button full">
+      <button type="submit" className={`panel-button full ${instanceId}`}>
         Add Score
       </button>
     </form>

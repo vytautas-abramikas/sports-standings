@@ -1,0 +1,27 @@
+$color-border-premier: #d1d5db;
+$color-bg-button-premier: #2563eb;
+$color-bg-button-hover-premier: #1e40af;
+
+$color-text-light-premier: #fff;
+
+.input {
+  &.p6o7 {
+    width: 85.7143%;
+  }
+  &.premier {
+    border-color: $color-border-premier;
+  }
+}
+
+.panel-button {
+  &.p1o7 {
+    width: 14.2857%;
+  }
+  &.premier {
+    background-color: $color-bg-button-premier;
+    color: $color-text-light-premier;
+    &:hover {
+      background-color: $color-bg-button-hover-premier;
+    }
+  }
+}

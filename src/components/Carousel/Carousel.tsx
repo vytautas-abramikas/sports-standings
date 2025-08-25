@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
 import { StandingsProvider } from "../../context/StandingsContext";
 import { PremierLeaguePanel } from "../PremierLeaguePanel/PremierLeaguePanel";
-import "./App.scss";
+import "./Carousel.scss";
 import type { TContextInstance } from "../../types/types";
 
 const panels: TContextInstance[] = ["premier", "eurobasket", "wimbledon"];
 const PANEL_WIDTH = 30;
 const PANEL_GAP = 2;
 
-export const App: React.FC = () => {
+export const Carousel: React.FC = () => {
   const [visibleCount, setVisibleCount] = useState(3);
   const [current, setCurrent] = useState(0);
 

@@ -1,0 +1,29 @@
+$color-bg-table-header-premier: #efefef;
+
+$color-border-premier: #d1d5db;
+
+.table {
+  width: 100%;
+  text-align: left;
+  font-size: 1rem;
+  border-collapse: collapse;
+
+  th {
+    padding: 0.9rem;
+    font-weight: 500;
+  }
+
+  td {
+    padding: 0.9rem;
+    font-weight: 500;
+  }
+  &.premier {
+    th {
+      border-bottom: 2px solid $color-border-premier;
+      background-color: $color-bg-table-header-premier;
+    }
+    td {
+      border-bottom: 2px solid $color-border-premier;
+    }
+  }
+}

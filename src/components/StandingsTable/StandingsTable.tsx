@@ -1,10 +1,11 @@
 import { useStandingsContext } from "../../hooks/useStandingsContext";
+import "./StandingsTable.scss";
 
 export const StandingsTable: React.FC = () => {
-  const { resultsForTable, opponents } = useStandingsContext();
+  const { instanceId, resultsForTable, opponents } = useStandingsContext();
 
   return (
-    <table className="table">
+    <table className={`table ${instanceId}`}>
       <thead>
         <tr>
           <th>Team</th>

@@ -1,15 +1,7 @@
 $color-bg-main: #f3f4f6;
-$color-bg-container: #fff;
-$color-bg-header: #37003c;
-$color-bg-section: #f9fafb;
-$color-bg-button: #2563eb;
-$color-bg-button-hover: #1e40af;
-$color-bg-table-header: #efefef;
+$color-bg-league-container: #fff;
+$color-bg-select-dark: #efefef;
 
-$color-text-light: #fff;
-$color-text-dark: #000;
-
-$color-border: #d1d5db;
 $color-placeholder: #9ca3af;
 
 .screen {
@@ -24,16 +16,66 @@ $color-placeholder: #9ca3af;
   overflow: hidden;
 }
 
-.league-container {
+.carousel-arrow {
+  position: absolute;
+  background: none;
+  color: $color-placeholder;
+  top: 50%;
+  z-index: 10;
+  font-size: 3rem;
+  width: 3rem;
+  height: 3rem;
   display: flex;
-  flex-direction: column;
-  font-family: "Inter", "Roboto", sans-serif;
-  background-color: $color-bg-container;
-  border-radius: 0.5rem;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.15s;
+
+  &:hover,
+  &:focus {
+    transform: scale(1.08);
+    outline: none;
+  }
+
+  &:active {
+    transform: scale(0.96);
+  }
+}
+.carousel-arrow.left {
+  left: 0.5rem;
+}
+.carousel-arrow.right {
+  right: 0.5rem;
+}
+
+.carousel-viewport {
   overflow: hidden;
+  position: relative;
+  margin: 0 auto;
+}
+
+.carousel-track {
+  display: flex;
+  will-change: transform;
+  transition: transform 0.5s cubic-bezier(0.77, 0, 0.18, 1);
+}
+
+.league-container {
   width: 30rem;
   height: 45rem;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  margin-right: 2rem;
+  border-radius: 0.5rem;
+  overflow: hidden;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.league-container:last-child {
+  margin-right: 0;
 }
 
 .league-content {
@@ -51,11 +93,8 @@ $color-placeholder: #9ca3af;
 }
 
 .header {
-  background-color: $color-bg-header;
-  color: $color-text-light;
   padding: 1.25rem;
   font-size: 1.75rem;
-  font-weight: 600;
   display: flex;
   align-items: center;
 }
@@ -63,15 +102,12 @@ $color-placeholder: #9ca3af;
 .section {
   margin: 1rem;
   padding: 1rem;
-  background-color: $color-bg-section;
-  border-radius: 0.5rem;
 }
 
 .section-title {
   font-size: 1rem;
   font-weight: 600;
   margin-bottom: 1rem;
-  color: $color-text-dark;
 }
 
 .form-row {
@@ -81,27 +117,21 @@ $color-placeholder: #9ca3af;
     margin-bottom: 1rem;
   }
 }
-
+//-----
 .input,
 .select {
   flex: 1;
   padding: 0.5rem;
   font-size: 1rem;
   font-weight: 600;
-  border: 2px solid $color-border;
+  border: 2px solid;
   border-radius: 0.5rem;
-  background-color: $color-bg-container;
+  background-color: $color-bg-league-container;
   &.half {
     width: 50%;
   }
-  &.full {
-    width: 100%;
-  }
-  &.p6o7 {
-    width: 85.7143%;
-  }
   &.dark {
-    background-color: $color-bg-table-header;
+    background-color: $color-bg-select-dark;
   }
 }
 
@@ -114,8 +144,6 @@ input::placeholder {
 }
 
 .panel-button {
-  background-color: $color-bg-button;
-  color: $color-text-light;
   font-size: 1rem;
   font-weight: 600;
   padding: 0.5rem;
@@ -123,40 +151,21 @@ input::placeholder {
   border-radius: 0.5rem;
   border: none;
   cursor: pointer;
-  transition: background-color 0.2s ease;
-  &:hover {
-    background-color: $color-bg-button-hover;
+  transition: background-color 0.2s ease, transform 0.15s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &:hover,
+  &:focus {
+    transform: scale(1.05);
+    outline: none;
   }
-  &.full {
-    width: 100%;
-  }
-  &.p1o7 {
-    width: 14.2857%;
+  &:active {
+    transform: scale(0.97);
   }
 }
 
 .table-section {
   padding: 1rem;
   margin-top: 1rem;
-  background-color: $color-bg-container;
-}
-
-.table {
-  width: 100%;
-  text-align: left;
-  font-size: 1rem;
-  border-collapse: collapse;
-
-  th {
-    padding: 0.9rem;
-    font-weight: 500;
-    border-bottom: 2px solid $color-border;
-    background-color: $color-bg-table-header;
-  }
-
-  td {
-    padding: 0.9rem;
-    font-weight: 500;
-    border-bottom: 2px solid $color-border;
-  }
 }

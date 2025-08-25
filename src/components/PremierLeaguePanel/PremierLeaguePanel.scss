@@ -1,0 +1,28 @@
+$color-bg-league-container-premier: #fff;
+$color-bg-header-premier: #37003c;
+$color-bg-section-premier: #f9fafb;
+
+$color-text-light-premier: #fff;
+$color-text-dark-premier: #000;
+
+.league-container.premier {
+  font-family: "Inter", "Roboto", sans-serif;
+  background-color: $color-bg-league-container-premier;
+}
+.header.premier {
+  background-color: $color-bg-header-premier;
+  color: $color-text-light-premier;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+}
+.section.premier {
+  background-color: $color-bg-section-premier;
+  border-radius: 0.5rem;
+}
+.section-title.premier {
+  color: $color-text-dark-premier;
+}
+.table-section.premier {
+  background-color: $color-bg-league-container-premier;
+}

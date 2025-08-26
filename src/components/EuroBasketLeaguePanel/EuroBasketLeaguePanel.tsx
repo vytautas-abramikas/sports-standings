@@ -4,13 +4,15 @@ import "./EuroBasketLeaguePanel.scss";
 import basketballLogoUrl from "../../assets/basketball.svg";
 import { AddButtonsSection } from "../AddButtonsSection/AddButtonsSection";
 import { SelectTeamModal } from "../SelectTeamModal/SelectTeamModal";
+import { AddMatchModal } from "../AddMatchModal/AddMatchModal";
 
 export const EuroBasketLeaguePanel: React.FC = () => {
-  const { isSelectTeamModalOpen } = useStandingsContext();
+  const { isSelectTeamModalOpen, isAddMatchModalOpen } = useStandingsContext();
 
   return (
     <div className="league-container eurobasket">
       {isSelectTeamModalOpen && <SelectTeamModal />}
+      {isAddMatchModalOpen && <AddMatchModal />}
       <div className="header eurobasket">
         <img
           src={basketballLogoUrl}

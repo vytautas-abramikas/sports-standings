@@ -13,7 +13,8 @@ $color-bg-wimbledon-add-match-button-hover: #005529;
     width: 50%;
   }
   &.premier,
-  &.wimbledon {
+  &.wimbledon,
+  &.eurobasket {
     border-color: $color-border-premier;
   }
 }

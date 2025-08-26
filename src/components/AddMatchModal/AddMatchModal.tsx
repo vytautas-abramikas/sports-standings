@@ -4,11 +4,11 @@ import "./AddMatchModal.scss";
 import CrossLogoUrl from "../../assets/cross.svg";
 
 export const AddMatchModal: React.FC = () => {
-  const { setIsAddMatchModalOpen } = useStandingsContext();
+  const { instanceId, setIsAddMatchModalOpen } = useStandingsContext();
 
   return (
     <div className="modal-backdrop">
-      <div className="modal-content">
+      <div className={`modal-content ${instanceId}`}>
         <button
           className="modal-close"
           onClick={() => setIsAddMatchModalOpen(false)}

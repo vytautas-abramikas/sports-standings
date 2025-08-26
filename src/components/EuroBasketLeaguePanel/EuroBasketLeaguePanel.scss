@@ -1,0 +1,15 @@
+$color-bg-league-container-eurobasket: #002e26;
+$color-bg-header-eurobasket: #002e26;
+$color-text-light-eurobasket: #fff;
+
+.league-container.eurobasket {
+  font-family: "Montserrat", "Bebas Neue", sans-serif;
+  background-color: $color-bg-league-container-eurobasket;
+}
+.header.eurobasket {
+  background-color: $color-bg-header-eurobasket;
+  color: $color-text-light-eurobasket;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+}

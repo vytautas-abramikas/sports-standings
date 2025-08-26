@@ -1,0 +1,15 @@
+$color-bg-league-container-wimbledon: #fff;
+$color-bg-header-wimbledon: #006633;
+$color-text-light-wimbledon: #fff;
+
+.league-container.wimbledon {
+  font-family: "Space Mono", monospace;
+  background-color: $color-bg-league-container-wimbledon;
+}
+.header.wimbledon {
+  background-color: $color-bg-header-wimbledon;
+  color: $color-text-light-wimbledon;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+}

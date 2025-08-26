@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { StandingsProvider } from "../../context/StandingsContext";
 import { PremierLeaguePanel } from "../PremierLeaguePanel/PremierLeaguePanel";
+import { EuroBasketLeaguePanel } from "../EuroBasketLeaguePanel/EuroBasketLeaguePanel";
+import { WimbledonLeaguePanel } from "../WimbledonLeaguePanel/WimbledonLeaguePanel";
 import "./Carousel.scss";
 import type { TContextInstance } from "../../types/types";
 
@@ -78,7 +80,9 @@ export const Carousel: React.FC = () => {
         >
           {panels.map((instance) => (
             <StandingsProvider key={instance} instanceId={instance}>
-              <PremierLeaguePanel />
+              {instance === "premier" && <PremierLeaguePanel />}
+              {instance === "eurobasket" && <EuroBasketLeaguePanel />}
+              {instance === "wimbledon" && <WimbledonLeaguePanel />}
             </StandingsProvider>
           ))}
         </div>

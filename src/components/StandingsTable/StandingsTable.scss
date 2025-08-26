@@ -1,6 +1,8 @@
 $color-bg-table-header-premier: #efefef;
-
 $color-border-premier: #d1d5db;
+
+$color-bg-table-header-wimbledon: #efefef;
+$color-border-wimbledon: #d1d5db;
 
 .table {
   width: 100%;
@@ -24,6 +26,21 @@ $color-border-premier: #d1d5db;
     }
     td {
       border-bottom: 2px solid $color-border-premier;
+    }
+  }
+
+  &.wimbledon {
+    th {
+      padding: 0.6rem;
+      border-bottom: 2px solid $color-border-wimbledon;
+      background-color: $color-bg-table-header-wimbledon;
+      font-weight: 700;
+      text-align: center;
+    }
+    td {
+      padding: 0.6rem;
+      border-bottom: 2px solid $color-border-wimbledon;
+      text-align: center;
     }
   }
 }

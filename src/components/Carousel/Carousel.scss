@@ -155,6 +155,7 @@ input::placeholder {
   display: flex;
   align-items: center;
   justify-content: center;
+  color: $color-bg-league-container;
   &:hover,
   &:focus {
     transform: scale(1.05);

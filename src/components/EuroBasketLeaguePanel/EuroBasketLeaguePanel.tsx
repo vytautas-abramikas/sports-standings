@@ -1,6 +1,7 @@
 import { StandingsTable } from "../StandingsTable/StandingsTable";
 import "./EuroBasketLeaguePanel.scss";
 import basketballLogoUrl from "../../assets/basketball.svg";
+import { AddButtonsSection } from "../AddButtonsSection/AddButtonsSection";
 
 export const EuroBasketLeaguePanel: React.FC = () => {
   return (
@@ -18,6 +19,9 @@ export const EuroBasketLeaguePanel: React.FC = () => {
       </div>
 
       <div className="league-content">
+        <div className="section eurobasket-buttons">
+          <AddButtonsSection />
+        </div>
         <div className="table-section eurobasket">
           <StandingsTable />
         </div>

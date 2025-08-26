@@ -1,0 +1,45 @@
+$color-bg-wimbledon-add-team-button: #006633;
+$color-bg-wimbledon-add-team-button-hover: #005529;
+$color-bg-wimbledon-add-score-button: #42075b;
+$color-bg-wimbledon-add-score-button-hover: #340747;
+
+$color-bg-eurobasket-add-button: #ff6900;
+$color-bg-eurobasket-add-button-hover: #aa4700;
+
+.add-buttons-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: transparent;
+
+  .panel-button.add-button {
+    &.wimbledon {
+      font-size: 1.25rem;
+      font-weight: 400;
+      padding: 0.6rem;
+      padding-right: 1.5rem;
+      &.add-team-button {
+        background-color: $color-bg-wimbledon-add-team-button;
+        &:hover {
+          background-color: $color-bg-wimbledon-add-team-button-hover;
+        }
+      }
+      &.add-score-button {
+        background-color: $color-bg-wimbledon-add-score-button;
+        &:hover {
+          background-color: $color-bg-wimbledon-add-score-button-hover;
+        }
+      }
+    }
+    &.eurobasket {
+      font-size: 1rem;
+      font-weight: 500;
+      padding: 0.4rem;
+      padding-right: 1rem;
+      background-color: $color-bg-eurobasket-add-button;
+      &:hover {
+        background-color: $color-bg-eurobasket-add-button-hover;
+      }
+    }
+  }
+}

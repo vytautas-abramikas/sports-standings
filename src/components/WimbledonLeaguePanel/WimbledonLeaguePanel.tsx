@@ -1,4 +1,5 @@
 import { StandingsTable } from "../StandingsTable/StandingsTable";
+import { AddButtonsSection } from "../AddButtonsSection/AddButtonsSection";
 import "./WimbledonLeaguePanel.scss";
 import tennisLogoUrl from "../../assets/tennis.svg";
 
@@ -18,6 +19,9 @@ export const WimbledonLeaguePanel: React.FC = () => {
       </div>
 
       <div className="league-content">
+        <div className="section wimbledon">
+          <AddButtonsSection />
+        </div>
         <div className="table-section wimbledon">
           <StandingsTable />
         </div>

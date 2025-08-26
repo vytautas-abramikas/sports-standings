@@ -30,7 +30,7 @@ export const StandingsTable: React.FC = () => {
               colSpan={instanceId === "premier" ? 6 : 5}
               style={{ textAlign: "center" }}
             >
-              No teams yet
+              {instanceId === "wimbledon" ? "No players yet" : "No teams yet"}
             </td>
           </tr>
         ) : (

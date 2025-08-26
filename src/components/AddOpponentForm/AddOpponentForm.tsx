@@ -27,7 +27,9 @@ export const AddOpponentForm: React.FC = () => {
     <form className="form-row" onSubmit={handleSubmit}>
       <input
         type="text"
-        placeholder="Team Name"
+        placeholder={`${
+          instanceId === "wimbledon" ? "Player Name" : "Team Name"
+        }`}
         className={`input p6o7 ${instanceId}`}
         value={inputValue}
         onChange={(e) => setInputValue(e.target.value)}

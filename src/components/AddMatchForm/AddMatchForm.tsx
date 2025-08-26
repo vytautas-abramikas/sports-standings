@@ -69,7 +69,9 @@ export const AddMatchForm: React.FC = () => {
           style={{ borderColor: matchError.home ? "red" : undefined }}
         >
           <option value={0} className="option-placeholder">
-            Home Team
+            {instanceId === "premier" && "Home Team"}
+            {instanceId === "eurobasket" && "Team 1"}
+            {instanceId === "wimbledon" && "Player 1"}
           </option>
           {getAvailableOpponents(homeId, true).map((opponent) => (
             <option key={opponent.id} value={opponent.id}>
@@ -84,7 +86,9 @@ export const AddMatchForm: React.FC = () => {
           style={{ borderColor: matchError.away ? "red" : undefined }}
         >
           <option value={0} className="option-placeholder">
-            Away Team
+            {instanceId === "premier" && "Away Team"}
+            {instanceId === "eurobasket" && "Team 2"}
+            {instanceId === "wimbledon" && "Player 2"}
           </option>
           {getAvailableOpponents(awayId, false).map((opponent) => (
             <option key={opponent.id} value={opponent.id}>
@@ -96,7 +100,13 @@ export const AddMatchForm: React.FC = () => {
       <div className="form-row score">
         <input
           type="text"
-          placeholder="Home Score"
+          placeholder={`${
+            instanceId === "premier"
+              ? "Home Score"
+              : instanceId === "eurobasket"
+              ? "Team 1 Score"
+              : "Player 1 Score"
+          }`}
           className={`input half ${instanceId}`}
           value={homeScore}
           onChange={(e) => setHomeScore(e.target.value.replace(/\D/, ""))}
@@ -106,7 +116,13 @@ export const AddMatchForm: React.FC = () => {
         />
         <input
           type="text"
-          placeholder="Away Score"
+          placeholder={`${
+            instanceId === "premier"
+              ? "Away Score"
+              : instanceId === "eurobasket"
+              ? "Team 2 Score"
+              : "Player 2 Score"
+          }`}
           className={`input half ${instanceId}`}
           value={awayScore}
           onChange={(e) => setAwayScore(e.target.value.replace(/\D/, ""))}

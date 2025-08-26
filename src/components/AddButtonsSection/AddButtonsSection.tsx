@@ -3,15 +3,21 @@ import "./AddButtonsSection.scss";
 import PlusLogoUrl from "../../assets/plus.svg";
 
 export const AddButtonsSection: React.FC = () => {
-  const { instanceId, setIsAddPlayerModalOpen, setIsAddMatchModalOpen } =
-    useStandingsContext();
+  const {
+    instanceId,
+    setIsAddPlayerModalOpen,
+    setIsAddMatchModalOpen,
+    setIsSelectTeamModalOpen,
+  } = useStandingsContext();
 
   return (
     <div className={`add-buttons-section ${instanceId}`}>
       <button
         className={`panel-button add-button add-team-button ${instanceId}`}
         onClick={() =>
-          instanceId === "wimbledon" && setIsAddPlayerModalOpen(true)
+          instanceId === "wimbledon"
+            ? setIsAddPlayerModalOpen(true)
+            : setIsSelectTeamModalOpen(true)
         }
       >
         <img

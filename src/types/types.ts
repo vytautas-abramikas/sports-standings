@@ -38,9 +38,11 @@ export type TStandingsContext = {
   resultsForTable: TOpponentStats[];
   isAddPlayerModalOpen: boolean;
   isAddMatchModalOpen: boolean;
+  isSelectTeamModalOpen: boolean;
   setMatchError: (error: TMatchError) => void;
   addOpponent: (opponent: TOpponent) => boolean;
   addMatch: (match: TMatch) => boolean;
   setIsAddPlayerModalOpen: (isOpen: boolean) => void;
   setIsAddMatchModalOpen: (isOpen: boolean) => void;
+  setIsSelectTeamModalOpen: (isOpen: boolean) => void;
 };

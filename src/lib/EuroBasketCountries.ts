@@ -1,6 +1,7 @@
 import type { TOpponent } from "../types/types";
 
 export const EuroBasketCountries: TOpponent[] = [
+  { id: 0, name: "" },
   { id: 1, name: "Belgium" },
   { id: 2, name: "Bosnia and Herzegovina" },
   { id: 3, name: "Cyprus" },

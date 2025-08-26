@@ -5,6 +5,7 @@ $color-text-light-eurobasket: #fff;
 .league-container.eurobasket {
   font-family: "Montserrat", "Bebas Neue", sans-serif;
   background-color: $color-bg-league-container-eurobasket;
+  position: relative;
 }
 .header.eurobasket {
   background-color: $color-bg-header-eurobasket;

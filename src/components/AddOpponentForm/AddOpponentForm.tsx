@@ -14,7 +14,8 @@ export const AddOpponentForm: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const success: boolean = addOpponent({ id: 0, name: inputValue });
+    const trimmed: string = inputValue.trim();
+    const success: boolean = addOpponent({ id: 0, name: trimmed });
     if (success) {
       setInputValue("");
       if (instanceId === "wimbledon" && isAddPlayerModalOpen)

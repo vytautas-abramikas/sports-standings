@@ -1,0 +1,25 @@
+$color-bg-modal-eurobasket: #004f42;
+$color-text-light-eurobasket: #fff;
+$color-bg-eurobasket-add-button: #ff6900;
+$color-bg-eurobasket-add-button-hover: #aa4700;
+$color-border-select-eurobasket: #d1d5db;
+
+.modal-content.eurobasket {
+  font-family: "Montserrat", "Bebas Neue", sans-serif;
+  background-color: $color-bg-modal-eurobasket;
+  color: $color-text-light-eurobasket;
+}
+
+.panel-button.eurobasket {
+  font-family: inherit;
+  background-color: $color-bg-eurobasket-add-button;
+  color: $color-text-light-eurobasket;
+  &:hover {
+    background-color: $color-bg-eurobasket-add-button-hover;
+  }
+}
+
+.select.eurobasket {
+  font-family: inherit;
+  border-color: $color-border-select-eurobasket;
+}

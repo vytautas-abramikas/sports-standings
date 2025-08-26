@@ -33,6 +33,8 @@ export const StandingsProvider: React.FC<{
     useState<boolean>(false);
   const [isAddMatchModalOpen, setIsAddMatchModalOpen] =
     useState<boolean>(false);
+  const [isSelectTeamModalOpen, setIsSelectTeamModalOpen] =
+    useState<boolean>(false);
 
   useEffect(() => {
     localStorage.setItem(`opponents_${instanceId}`, JSON.stringify(opponents));
@@ -85,7 +87,7 @@ export const StandingsProvider: React.FC<{
       return false;
     }
     setOpponentError(false);
-    const newId = getNextId(opponents);
+    const newId = opponent.id ? opponent.id : getNextId(opponents);
     const newOpponent: TOpponent = { ...opponent, id: newId };
     setOpponents((prev) => [...prev, newOpponent]);
     return true;
@@ -154,11 +156,13 @@ export const StandingsProvider: React.FC<{
         resultsForTable,
         isAddPlayerModalOpen,
         isAddMatchModalOpen,
+        isSelectTeamModalOpen,
         setMatchError,
         addOpponent,
         addMatch,
         setIsAddPlayerModalOpen,
         setIsAddMatchModalOpen,
+        setIsSelectTeamModalOpen,
       }}
     >
       {children}

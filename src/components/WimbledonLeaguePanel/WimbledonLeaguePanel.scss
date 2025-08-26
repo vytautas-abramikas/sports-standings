@@ -5,6 +5,7 @@ $color-text-light-wimbledon: #fff;
 .league-container.wimbledon {
   font-family: "Space Mono", monospace;
   background-color: $color-bg-league-container-wimbledon;
+  position: relative;
 }
 .header.wimbledon {
   background-color: $color-bg-header-wimbledon;

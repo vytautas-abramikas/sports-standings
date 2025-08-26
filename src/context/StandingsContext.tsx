@@ -29,6 +29,10 @@ export const StandingsProvider: React.FC<{
     homeScore: false,
     awayScore: false,
   });
+  const [isAddPlayerModalOpen, setIsAddPlayerModalOpen] =
+    useState<boolean>(false);
+  const [isAddMatchModalOpen, setIsAddMatchModalOpen] =
+    useState<boolean>(false);
 
   useEffect(() => {
     localStorage.setItem(`opponents_${instanceId}`, JSON.stringify(opponents));
@@ -147,10 +151,14 @@ export const StandingsProvider: React.FC<{
         matches,
         opponentError,
         matchError,
+        resultsForTable,
+        isAddPlayerModalOpen,
+        isAddMatchModalOpen,
         setMatchError,
         addOpponent,
         addMatch,
-        resultsForTable,
+        setIsAddPlayerModalOpen,
+        setIsAddMatchModalOpen,
       }}
     >
       {children}

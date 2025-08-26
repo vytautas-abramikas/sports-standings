@@ -3,12 +3,17 @@ $color-bg-button-premier: #2563eb;
 $color-bg-button-hover-premier: #1e40af;
 
 $color-text-light-premier: #fff;
+
+$color-bg-wimbledon-add-match-button: #006633;
+$color-bg-wimbledon-add-match-button-hover: #005529;
+
 .select,
 .input {
   &.half {
     width: 50%;
   }
-  &.premier {
+  &.premier,
+  &.wimbledon {
     border-color: $color-border-premier;
   }
 }
@@ -22,6 +27,13 @@ $color-text-light-premier: #fff;
     color: $color-text-light-premier;
     &:hover {
       background-color: $color-bg-button-hover-premier;
+    }
+  }
+  &.wimbledon {
+    background-color: $color-bg-wimbledon-add-match-button;
+    color: $color-text-light-premier;
+    &:hover {
+      background-color: $color-bg-wimbledon-add-match-button-hover;
     }
   }
 }

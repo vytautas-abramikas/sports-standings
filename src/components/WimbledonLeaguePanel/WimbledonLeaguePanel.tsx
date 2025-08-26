@@ -1,11 +1,18 @@
+import { useStandingsContext } from "../../hooks/useStandingsContext";
 import { StandingsTable } from "../StandingsTable/StandingsTable";
 import { AddButtonsSection } from "../AddButtonsSection/AddButtonsSection";
+import { AddPlayerModal } from "../AddPlayerModal/AddPlayerModal";
+import { AddMatchModal } from "../AddMatchModal/AddMatchModal";
 import "./WimbledonLeaguePanel.scss";
 import tennisLogoUrl from "../../assets/tennis.svg";
 
 export const WimbledonLeaguePanel: React.FC = () => {
+  const { isAddPlayerModalOpen, isAddMatchModalOpen } = useStandingsContext();
+
   return (
     <div className="league-container wimbledon">
+      {isAddPlayerModalOpen && <AddPlayerModal />}
+      {isAddMatchModalOpen && <AddMatchModal />}
       <div className="header wimbledon">
         <img
           src={tennisLogoUrl}

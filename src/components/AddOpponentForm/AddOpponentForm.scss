@@ -4,16 +4,28 @@ $color-bg-button-hover-premier: #1e40af;
 
 $color-text-light-premier: #fff;
 
+$color-bg-wimbledon-add-team-button: #006633;
+$color-bg-wimbledon-add-team-button-hover: #005529;
+
+.form-row.wimbledon {
+  font-family: "Space Mono", monospace;
+}
+
 .input {
+  font-family: inherit;
   &.p6o7 {
     width: 85.7143%;
   }
   &.premier {
     border-color: $color-border-premier;
   }
+  &.wimbledon {
+    border-color: $color-border-premier;
+  }
 }
 
 .panel-button {
+  font-family: inherit;
   &.p1o7 {
     width: 14.2857%;
   }
@@ -22,6 +34,13 @@ $color-text-light-premier: #fff;
     color: $color-text-light-premier;
     &:hover {
       background-color: $color-bg-button-hover-premier;
+    }
+  }
+  &.wimbledon {
+    background-color: $color-bg-wimbledon-add-team-button;
+    color: $color-text-light-premier;
+    &:hover {
+      background-color: $color-bg-wimbledon-add-team-button-hover;
     }
   }
 }

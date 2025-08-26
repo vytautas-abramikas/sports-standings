@@ -3,8 +3,15 @@ import { useStandingsContext } from "../../hooks/useStandingsContext";
 import "./AddMatchForm.scss";
 
 export const AddMatchForm: React.FC = () => {
-  const { instanceId, opponents, matches, addMatch, matchError } =
-    useStandingsContext();
+  const {
+    instanceId,
+    opponents,
+    matches,
+    addMatch,
+    matchError,
+    isAddMatchModalOpen,
+    setIsAddMatchModalOpen,
+  } = useStandingsContext();
 
   const [homeId, setHomeId] = useState<number>(0);
   const [awayId, setAwayId] = useState<number>(0);
@@ -46,6 +53,10 @@ export const AddMatchForm: React.FC = () => {
     setAwayId(0);
     setHomeScore("");
     setAwayScore("");
+
+    if (instanceId !== "premier" && isAddMatchModalOpen) {
+      setIsAddMatchModalOpen(false);
+    }
   };
 
   return (

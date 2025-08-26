@@ -1,0 +1,28 @@
+import type { TOpponent } from "../types/types";
+
+export const EuroBasketCountries: TOpponent[] = [
+  { id: 1, name: "Belgium" },
+  { id: 2, name: "Bosnia and Herzegovina" },
+  { id: 3, name: "Cyprus" },
+  { id: 4, name: "Czechia" },
+  { id: 5, name: "Estonia" },
+  { id: 6, name: "Finland" },
+  { id: 7, name: "France" },
+  { id: 8, name: "Georgia" },
+  { id: 9, name: "Germany" },
+  { id: 10, name: "Great Britain" },
+  { id: 11, name: "Greece" },
+  { id: 12, name: "Iceland" },
+  { id: 13, name: "Israel" },
+  { id: 14, name: "Italy" },
+  { id: 15, name: "Latvia" },
+  { id: 16, name: "Lithuania" },
+  { id: 17, name: "Montenegro" },
+  { id: 18, name: "Poland" },
+  { id: 19, name: "Portugal" },
+  { id: 20, name: "Serbia" },
+  { id: 21, name: "Slovenia" },
+  { id: 22, name: "Spain" },
+  { id: 23, name: "Sweden" },
+  { id: 24, name: "Turkey" },
+];

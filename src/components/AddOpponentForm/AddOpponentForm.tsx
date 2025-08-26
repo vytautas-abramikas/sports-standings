@@ -3,13 +3,23 @@ import { useStandingsContext } from "../../hooks/useStandingsContext";
 import "./AddOpponentForm.scss";
 
 export const AddOpponentForm: React.FC = () => {
-  const { instanceId, addOpponent, opponentError } = useStandingsContext();
+  const {
+    instanceId,
+    addOpponent,
+    opponentError,
+    setIsAddPlayerModalOpen,
+    isAddPlayerModalOpen,
+  } = useStandingsContext();
   const [inputValue, setInputValue] = useState("");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const success: boolean = addOpponent({ id: 0, name: inputValue });
-    if (success) setInputValue("");
+    if (success) {
+      setInputValue("");
+      if (instanceId === "wimbledon" && isAddPlayerModalOpen)
+        setIsAddPlayerModalOpen(false);
+    }
   };
 
   return (

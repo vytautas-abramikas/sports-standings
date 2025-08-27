@@ -2,6 +2,7 @@ import { useStandingsContext } from "../../hooks/useStandingsContext";
 import "./StandingsTable.scss";
 import CheckLogoUrl from "../../assets/check.svg";
 import CrossLogoUrl from "../../assets/cross.svg";
+import { FlagMap } from "../../lib/FlagMap";
 
 export const StandingsTable: React.FC = () => {
   const { instanceId, resultsForTable, opponents } = useStandingsContext();
@@ -39,6 +40,19 @@ export const StandingsTable: React.FC = () => {
             return (
               <tr key={team.id}>
                 <td style={{ textAlign: "left" }}>
+                  {instanceId === "eurobasket" &&
+                    opponent &&
+                    FlagMap[opponent.name] && (
+                      <img
+                        src={FlagMap[opponent.name]}
+                        alt={opponent.name}
+                        style={{
+                          height: "1rem",
+                          marginRight: "0.5rem",
+                          marginBottom: "-0.1rem",
+                        }}
+                      />
+                    )}
                   {opponent ? opponent.name : "Unknown"}
                 </td>
                 {instanceId !== "eurobasket" && <td>{team.played}</td>}

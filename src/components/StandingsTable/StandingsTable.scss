@@ -4,8 +4,10 @@ $color-border-premier: #d1d5db;
 $color-bg-table-header-wimbledon: #efefef;
 $color-border-wimbledon: #d1d5db;
 
+$color-bg-table-eurobasket: #00201b;
+$color-text-light: #fff;
+
 .table {
-  width: 100%;
   text-align: left;
   font-size: 1rem;
   border-collapse: collapse;
@@ -20,6 +22,7 @@ $color-border-wimbledon: #d1d5db;
     font-weight: 500;
   }
   &.premier {
+    width: 100%;
     th {
       border-bottom: 2px solid $color-border-premier;
       background-color: $color-bg-table-header-premier;
@@ -30,6 +33,7 @@ $color-border-wimbledon: #d1d5db;
   }
 
   &.wimbledon {
+    width: 100%;
     th {
       padding: 0.6rem;
       border-bottom: 2px solid $color-border-wimbledon;
@@ -41,6 +45,26 @@ $color-border-wimbledon: #d1d5db;
       padding: 0.6rem;
       border-bottom: 2px solid $color-border-wimbledon;
       text-align: center;
+    }
+  }
+
+  &.eurobasket {
+    margin: auto;
+    width: 90%;
+    th {
+      padding: 0.6rem;
+      border: none;
+      background-color: transparent;
+      font-weight: 700;
+      text-align: center;
+      color: $color-text-light;
+    }
+    td {
+      padding: 0.6rem;
+      border: none;
+      background-color: $color-bg-table-eurobasket;
+      text-align: center;
+      color: $color-text-light;
     }
   }
 }

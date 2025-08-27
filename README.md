@@ -1,5 +1,5 @@
-# Sports Standings App (demo)
+## Sports Standings App (demo)
 
-## npm install
+### npm install
 
-## npm run dev
+### npm run dev

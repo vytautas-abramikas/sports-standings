@@ -14,6 +14,21 @@ $color-text-light-eurobasket: #fff;
   display: flex;
   align-items: center;
 }
-.section.eurobasket-buttons {
-  margin: 0.5rem;
+.section {
+  &.eurobasket-buttons {
+    margin: 0.5rem;
+  }
+  &.matchlist {
+    margin: 0 1rem 0 1rem;
+    padding: 0 1rem 0 1rem;
+  }
+}
+.table-section.eurobasket {
+  margin: 0 1.8rem 0 1.8rem;
+}
+.table-title {
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  color: $color-text-light-eurobasket;
 }

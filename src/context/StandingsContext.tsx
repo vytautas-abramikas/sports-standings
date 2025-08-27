@@ -82,13 +82,16 @@ export const StandingsProvider: React.FC<{
     list.length > 0 ? Math.max(...list.map((item) => item.id)) + 1 : 1;
 
   const addOpponent = (opponent: TOpponent): boolean => {
-    if (!isValidNewOpponent(opponent.name)) {
+    const trimmedName =
+      opponent.name.length > 22 ? opponent.name.slice(0, 22) : opponent.name;
+
+    if (!isValidNewOpponent(trimmedName)) {
       setOpponentError(true);
       return false;
     }
     setOpponentError(false);
     const newId = opponent.id ? opponent.id : getNextId(opponents);
-    const newOpponent: TOpponent = { ...opponent, id: newId };
+    const newOpponent: TOpponent = { id: newId, name: trimmedName };
     setOpponents((prev) => [...prev, newOpponent]);
     return true;
   };
@@ -137,6 +140,14 @@ export const StandingsProvider: React.FC<{
       valid = false;
     }
     if (!opponent2score && opponent2score !== 0) {
+      error.awayScore = true;
+      valid = false;
+    }
+    if (opponent1score && opponent1score > 999) {
+      error.homeScore = true;
+      valid = false;
+    }
+    if (opponent2score && opponent2score > 999) {
       error.awayScore = true;
       valid = false;
     }

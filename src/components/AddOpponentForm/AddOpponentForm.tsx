@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useEffect, useState } from "react";
 import { useStandingsContext } from "../../hooks/useStandingsContext";
 import "./AddOpponentForm.scss";
 
@@ -11,6 +11,13 @@ export const AddOpponentForm: React.FC = () => {
     isAddPlayerModalOpen,
   } = useStandingsContext();
   const [inputValue, setInputValue] = useState("");
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    if (instanceId === "wimbledon" && isAddPlayerModalOpen) {
+      inputRef.current?.focus();
+    }
+  }, [instanceId, isAddPlayerModalOpen]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -26,6 +33,7 @@ export const AddOpponentForm: React.FC = () => {
   return (
     <form className="form-row" onSubmit={handleSubmit}>
       <input
+        ref={inputRef}
         type="text"
         placeholder={`${
           instanceId === "wimbledon" ? "Player Name" : "Team Name"

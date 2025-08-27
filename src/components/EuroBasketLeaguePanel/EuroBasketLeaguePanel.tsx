@@ -1,4 +1,5 @@
 import { useStandingsContext } from "../../hooks/useStandingsContext";
+import { MatchList } from "../MatchList/MatchList";
 import { StandingsTable } from "../StandingsTable/StandingsTable";
 import "./EuroBasketLeaguePanel.scss";
 import basketballLogoUrl from "../../assets/basketball.svg";
@@ -29,7 +30,11 @@ export const EuroBasketLeaguePanel: React.FC = () => {
         <div className="section eurobasket-buttons">
           <AddButtonsSection />
         </div>
+        <div className="section eurobasket matchlist">
+          <MatchList />
+        </div>
         <div className="table-section eurobasket">
+          <div className="table-title">Score Table:</div>
           <StandingsTable />
         </div>
       </div>

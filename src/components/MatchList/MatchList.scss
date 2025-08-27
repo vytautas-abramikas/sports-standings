@@ -1,0 +1,40 @@
+$color-bg-table-eurobasket: #00201b;
+$color-text-light-eurobasket: #fff;
+
+.matchlist-container {
+  padding: 1rem;
+  font-size: 1rem;
+}
+
+.match-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0;
+  border-bottom: 1px solid $color-bg-table-eurobasket;
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.no-matches {
+  text-align: center;
+}
+
+.teams {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+}
+
+.flag {
+  height: 1rem;
+  margin-bottom: -0.15rem;
+  margin-right: 0.2rem;
+}
+
+.text {
+  font-size: 1rem;
+  font-weight: 500;
+  color: $color-text-light-eurobasket;
+}
